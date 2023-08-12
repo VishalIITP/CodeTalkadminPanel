@@ -10,7 +10,7 @@ const Allstuds = () => {
 
     const fetchNow = async () => {
         try {
-            let response = await fetch(`${API_PATH}/allStudents/`, {
+            let response = await fetch(`${API_PATH}/admin/allStudents/`, {
                 method: 'GET',
 
             })

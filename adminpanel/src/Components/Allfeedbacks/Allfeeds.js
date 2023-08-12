@@ -10,7 +10,7 @@ const Allfeeds = () => {
 
     const fetchallfeeds = async () => {
         try {
-            const response = await fetch(`${API_PATH}/allFeedbacks`, {
+            const response = await fetch(`${API_PATH}/admin/allFeedbacks`, {
                 method: 'GET'
             })
             if (response.ok) {
