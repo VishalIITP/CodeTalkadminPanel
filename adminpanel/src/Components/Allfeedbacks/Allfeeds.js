@@ -32,7 +32,7 @@ const Allfeeds = () => {
 
     return (
         <>
-            <div><button onClick={fetchallfeeds}>Fetch Now</button></div>
+            <div>Feedbacks: <button className='FNbutton' onClick={fetchallfeeds}>Fetch Now</button></div>
             {
                 allFeed.length ? (
                     <table>

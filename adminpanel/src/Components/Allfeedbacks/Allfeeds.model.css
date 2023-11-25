@@ -1,3 +1,13 @@
 table, th, td{
     border: 1px solid black;
 }
+
+.FNbutton{
+    background: yellow;
+    padding: 5px;
+    margin: 5px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px ;
+    cursor: pointer;
+    }

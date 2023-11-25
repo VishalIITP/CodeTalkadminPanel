@@ -2,7 +2,14 @@ table, th, td{
     border:1px solid black;
 }
 
-button{
-    margin:10px;
-    height: 40px;
+
+
+.FNbutton{
+background: yellow;
+padding: 5px;
+margin: 5px;
+outline: none;
+border: 1px solid black;
+border-radius: 10px ;
+cursor: pointer;
 }

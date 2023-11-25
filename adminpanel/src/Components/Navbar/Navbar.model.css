@@ -1,0 +1,13 @@
+.navBox{
+    height: 25px;
+    border:2px solid black;
+    margin: 2px;
+
+}
+
+.navItems{
+    margin: 2px 6px;
+    text-decoration: none;
+    
+}
+

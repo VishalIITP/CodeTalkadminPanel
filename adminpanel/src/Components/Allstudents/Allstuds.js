@@ -34,7 +34,7 @@ const Allstuds = () => {
     }, []);
     return (
         <>
-            <div><button onClick={fetchNow}>Fetch Now</button></div>
+            <div>Students: <button className='FNbutton' onClick={fetchNow}>Fetch Now</button></div>
             {
                 allStuds.length>0 ? (
                     <table>

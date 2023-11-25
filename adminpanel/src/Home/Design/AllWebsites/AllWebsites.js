@@ -1,26 +1,12 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState,  } from "react";
+import { useNavigate } from "react-router-dom";
 const API_PATH = process.env.REACT_APP_API_PATH;
 
-const Home = () => {
+const AllWebsites = () => {
+    const navigate=useNavigate();
+
     const [allWebsites, setAllWebsites] = useState([]);
 
-    
-        const updateActStatus = async (x) => {
-            try {
-                await fetch(`${API_PATH}/active-website/${x}`, {
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        isActive: true,
-                    }),
-                    headers: {
-                        'Content-type': 'Application/json',
-                    },
-                })
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    
     const fetchWebsites = async () => {
         try {
             let response = await fetch(`${API_PATH}/allwebsites`, {
@@ -41,14 +27,37 @@ const Home = () => {
         } catch (error) {
             console.log(error);
         }
-    };
-    useEffect(() => {
-        fetchWebsites();
-    }, [])
+    }
+  
 
+
+    const deleteWebsite = async (x) => {
+        try {
+            let delresponse = await fetch(`${API_PATH}/deleteWebD`, {
+                method: 'DELETE',
+                body: JSON.stringify({
+                    websiteName: x,
+                }),
+                headers: {
+                    'content-type': 'Application/json',
+                },
+            })
+            if (delresponse.ok) {
+                console.log("Delete request sent successfully");
+            }
+            else {
+                console.log("Response was no ok");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+   useEffect(()=>{
+    fetchWebsites();
+   },[])
     return (
         <>
-            <h2>Home Page hai bhai</h2>
             <h3>Websites on this platform</h3>
             <button onClick={fetchWebsites}>Fetch Websites</button>
             <table>
@@ -60,8 +69,13 @@ const Home = () => {
                         <th>HeroT1D</th>
                         <th>HeroT2U</th>
                         <th>HeroT2D</th>
+                        <th>date</th>
+                        <th>time</th>
+                        <th>Disc. Price</th>
+                        <th>Price</th>
+                        <th>Timer (in sec)</th>
                         <th></th>
-                        <th>Active Status</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,20 +87,23 @@ const Home = () => {
                             <td>{website.heroT1D}</td>
                             <td>{website.heroT2U}</td>
                             <td>{website.heroT2D}</td>
-
+                            <td>{website.date}</td>
+                            <td>{website.time}</td>
+                            <td>{website.price}</td>
+                            <td>{website.strikePrice}</td>
+                            <td>{website.timer}</td>
                             <td>
-
-                                <button onClick={() => updateActStatus(website._id)} >Activate</button>
+                                <button onClick={()=>navigate(`/update-website/${website._id}`)}>Update</button>
                             </td>
-                            <td>{website.isActive?"True":"False"}</td>
-
+                            <td>
+                                <button onClick={() => deleteWebsite(website.websiteName)}>Delete</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-
         </>
     )
 }
 
-export default Home;
+export default AllWebsites;

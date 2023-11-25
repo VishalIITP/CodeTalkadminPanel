@@ -1,0 +1,10 @@
+.SFtoggle {
+  padding: 3px;
+  margin: 5px;
+  border: none;
+  background-color: aqua;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 85px;
+  cursor: pointer;
+}
