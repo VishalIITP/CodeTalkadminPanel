@@ -4,8 +4,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import Home from "../../Home/Home";
 import Analytics from "../../Home/Analytics/Analytics";
 import Design from "../../Home/Design/Design";
-import Allstuds from "../Allstudents/Allstuds";
-import Allfeeds from "../Allfeedbacks/Allfeeds";
 import UpdateWeb from "../../Home/Design/UpdateWeb/UpdateWeb";
 
 const Navbar = () => {
